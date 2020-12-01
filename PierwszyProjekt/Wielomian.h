@@ -35,8 +35,8 @@ public:
 	Wielomian() : size_(0), ptr_(nullptr) {}
 	Wielomian(const Wielomian& _copy) : size_(_copy.size_), ptr_(new T[size_]) { memcpy(ptr_, _copy.ptr_, sizeof(T) * size_); std::cout << "Konstruktor kopiujacy " << size_ << std::endl; }
 	Wielomian(T* _tmp, size_t _size) : size_(_size), ptr_(new T[size_]) { memcpy(ptr_, _tmp, sizeof(T) * size_); }
-	Wielomian(std::string str) : size_(0), ptr_(nullptr) { from_string(str, &size_, ptr_); }
-	~Wielomian() { delete ptr_; }
+	Wielomian(const std::string& str) : size_(0), ptr_(nullptr) { from_string(str, &size_, ptr_); }
+	~Wielomian() { delete[] ptr_; }
 
 	void test() const { std::cout << typeid(size_).name(); }
 	std::string to_string()
@@ -141,7 +141,7 @@ public:
 	}
 	Wielomian<T>& shortening()
 	{
-		std::cout << "shortening" << size_ << std::endl;
+		std::cout << "shortening " << size_ << std::endl;
 		size_t new_size = size_ - 1;
 		if ((*this)[new_size] != 0)	return (*this);
 
@@ -357,7 +357,7 @@ public:
 			result[0] = w[1];
 			Wielomian<T> temp(result, 1);
 			delete[] result;
-			if ((-b) * w[1] + w[0] == 0) 
+			if (((-b) * w[1] + w[0]) == 0) 
 				return temp;
 			return Wielomian<T>();  //pusty wielomian
 		}

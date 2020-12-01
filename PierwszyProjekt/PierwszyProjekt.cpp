@@ -24,6 +24,10 @@ auto main() -> int
 	moj_obiekt2->save_to_file("aaaaaaa.txt");
 	#pragma endregion Wielomian_tests
 
+
+
+	#pragma region Baza_danych
+	
 	std::list<osoba*> lista;
 	
 	osoba x("a", "b", "c");
@@ -36,7 +40,9 @@ auto main() -> int
 	{
 		std::cout << (*i).to_string() << std::endl;
 	}
-	
+
+	#pragma endregion Baza_danych
+
 
 	return 0;
 }
