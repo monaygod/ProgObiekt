@@ -11,7 +11,6 @@ b) string(lub char*) w który wpisujemy wielomian w postaci stringu np
 "3x^5+4x^10*2x^2+1", parsuje go i tworzy odpowiedni¹ reprezentacjê
 Metody zapisuj¹ce wielomian do pliku i odczytuj¹ce.
 
-TODO:
 dzielenie przez dwumian i wyliczanie wartoœci wielomianu HORNER
 */
 

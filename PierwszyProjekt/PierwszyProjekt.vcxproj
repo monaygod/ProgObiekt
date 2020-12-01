@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="osoba.h" />
+    <ClInclude Include="Repo.h" />
     <ClInclude Include="rowerzysta.h" />
     <ClInclude Include="Wielomian.h" />
     <ClInclude Include="zajecia_1.h" />
