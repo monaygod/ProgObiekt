@@ -1,7 +1,7 @@
 #pragma once
 class Punkt
 {
-protected:
+public:
 	bool hit;
 	bool show_ship;
 	Punkt(bool _hit, bool _show_ship) : hit(_hit), show_ship(_show_ship){}

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 
 #include "Punkt.h"
@@ -10,7 +10,7 @@ public:
 	std::string to_string()
 	{
 		
-		return hit ? "x" : show_ship ? "=" : "_";
+		return hit ? "x" : show_ship ? "#" : "_";
 	}
 };
 

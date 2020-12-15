@@ -9,6 +9,7 @@
 
 #include "HelpTools.h"
 #include "Punkt.h"
+#include "Ship.h"
 #include "Water.h"
 
 class Board
@@ -44,7 +45,7 @@ public:
 			result_temp[i+1] << std::right << std::setw(nameWidth) << std::setfill(separator) << i + 1;
 			for (size_t j = 0; j < size_; j++)
 			{
-				result_temp[i + 1] << std::right << std::setw(nameWidth) << std::setfill(separator) << tablica[i]->to_string();
+				result_temp[i + 1] << std::right << std::setw(nameWidth) << std::setfill(separator) << (*this)(i,j)->to_string();
 			}
 		}
 
@@ -55,22 +56,40 @@ public:
 		return result;
 	}
 
-	void place_ship_randomly()
+	bool place_ship(int ship_id, bool ship_direction, size_t x, size_t y)
 	{
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<int> dis(0, 10);
-
 		
-		for(const auto& a : ship_table)
+		for(int i=0;i<ship_table[ship_id];i++)
 		{
-			std::cout << dis(gen);
+			int x_next = x, y_next = y;
+			if (ship_direction)
+				x_next += i;
+			else
+				y_next += i;
+
+			if (x_next >= size_ || y_next >= size_)
+				return false;
+			
+			if (typeid(*((*this)(x_next, y_next))) != typeid(Water))
+				return false;
 		}
+		for (int i = 0; i < ship_table[ship_id]; i++)
+		{
+			int x_next = x, y_next = y;
+			if (ship_direction)
+				x_next += i;
+			else
+				y_next += i;
+			
+			delete (*this)(x_next, y_next);
+			(*this)(x_next, y_next) = new Ship(show_ship);
+		}
+		return true;
 	}
 
-	void place_ship(int ship_id, int ship_direction, size_t x, size_t y)
+	Punkt*& operator()(int x, int y)
 	{
-		
+		return tablica[x * size_ + y];
 	}
 
 };

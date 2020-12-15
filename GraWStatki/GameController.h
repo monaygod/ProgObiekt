@@ -2,32 +2,29 @@
 #include <iostream>
 #include <ostream>
 
+
+#include "AI.h"
 #include "Board.h"
+#include "Human.h"
+#include "Player.h"
 
 class GameController
 {
 	std::string player_name;
 	game_state state;
 	bool game_flag = true;
-	std::vector<Board> game_boards;
+	std::vector<Player*> players;
 
 	
 public:
 
-	GameController(): state(game_state::INITIALIZING)
+	GameController(): state(game_state::INITIALIZING), players(2)
 	{
-		game_boards.emplace_back();
-		game_boards.emplace_back(true);
-		game_boards.emplace_back();
-		game_boards.emplace_back();
+		players[0] = new Human();
+		players[1] = new AI();
 	}
 
-	~GameController()
-	{
-		delete[] game_boards[0];
-		delete[] game_boards[1];
-		delete[] game_boards;
-	}
+	~GameController() = default;
 
 	void main_loop()
 	{
@@ -48,7 +45,9 @@ public:
 		{
 		case game_state::MAIN_MENU: main_menu_show(); break;
 		case game_state::PREPARING_TO_GAME: break;
-		case game_state::PLAYING: break;
+		case game_state::PLAYING:
+			players[0]->show_map();
+			break;
 		case game_state::INITIALIZING: break;
 		default: ;
 		}
@@ -89,27 +88,16 @@ public:
 		int a = std::stoi(command);
 		switch(a)
 		{
-		case 1: break;
+		case 1: 
+			for (auto& a : players)
+				a->place_ship_randomly();
+			state = game_state::PLAYING;
+			break;
 		case 2: break;
 		case 3: game_flag = false; break;
 		default: ;
 		}
 		
-	}
-
-	void plansze()
-	{
-		Board sasd;
-		Board sasd2;
-
-		auto a = sasd.print_to_console();
-		auto b = sasd2.print_to_console();
-
-		for (int i = 0; i < 10; i++)
-		{
-			std::cout << a[i] << "\t" << b[i] << std::endl;
-		}
-	}
-	
+	}	
 };
 
