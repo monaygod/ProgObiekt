@@ -6,7 +6,7 @@
 auto main() -> int
 {
 	#pragma region Wielomian_tests
-	auto* moj_obiekt = new Wielomian<double>("2x^3-5x^2+4x-1");
+	auto* moj_obiekt = new Wielomian<double>("2x^40-5x^2+4x-2");
 	auto* moj_obiekt2 = new Wielomian<double>("2x^2+3-1x^7");
 	auto moj_obiekt3 = *moj_obiekt2;
 	//std::cin >> moj_obiekt3;

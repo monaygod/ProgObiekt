@@ -27,6 +27,12 @@ public:
 			tablica[i] = new Water(show_ship);
 		}
 	}
+	~Board()
+	{
+		for (size_t i=0;i<size_*size_;i++)
+			delete tablica[i];
+		delete[] tablica;
+	}
 
 	std::string* print_to_console()
 	{
@@ -42,7 +48,7 @@ public:
 
 		for (int i = 0; i < size_; i++)
 		{
-			result_temp[i+1] << std::right << std::setw(nameWidth) << std::setfill(separator) << i + 1;
+			result_temp[i+1] << std::right << std::setw(nameWidth) << std::setfill(separator) << i ;
 			for (size_t j = 0; j < size_; j++)
 			{
 				result_temp[i + 1] << std::right << std::setw(nameWidth) << std::setfill(separator) << (*this)(i,j)->to_string();
@@ -85,6 +91,12 @@ public:
 			(*this)(x_next, y_next) = new Ship(show_ship);
 		}
 		return true;
+	}
+
+	void swap_to_ship(size_t x, size_t y)
+	{
+		delete (*this)(x, y);
+		(*this)(x, y) = new Ship(show_ship);
 	}
 
 	Punkt*& operator()(int x, int y)

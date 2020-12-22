@@ -4,15 +4,25 @@
 
 class Player
 {
+protected:
 	Board my_ships;
 	Board my_guesses;
 
 public:
-	Player(): my_ships(true)
+	Player(): my_ships(true), my_guesses(true)
 	{
 		
 	}
-	//virtual void strzel(size_t x, size_t y);
+	~Player() = default;
+	bool under_fire(size_t x, size_t y)
+	{
+		my_ships(x, y)->hit = true;
+		std::cout << typeid(*my_ships(x, y)).name(); //to musi tutaj być bo inaczej if nie działa. czemu?
+		if (typeid(*my_ships(x, y)) == typeid(Ship))
+			return true;
+		return false;
+	}
+	virtual void fire(size_t x, size_t y, Player* opponent) = 0;
 	void place_ship_randomly()
 	{
 		std::random_device rd;
