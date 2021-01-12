@@ -75,9 +75,8 @@ public:
 	{
 		std::fstream plik;
 		try {
-			plik.open("save", std::ios::out | std::ios::binary);;
+			plik.open("save", std::ios::out | std::ios::binary);
 			plik.write((char*)this, sizeof(GameController));
-			//plik.write((char*)players[0], sizeof(Player));
 			plik.close();
 		}
 		catch(std::exception e)
