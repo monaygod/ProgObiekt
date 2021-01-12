@@ -50,6 +50,15 @@ public:
 			std::cout << a[i] << "\t" << b[i] << std::endl;
 		}
 	}
+
+	Board get_my_ships()
+	{
+		return my_ships;
+	}
+	Board get_my_guesses()
+	{
+		return my_guesses;
+	}
 	
 };
 

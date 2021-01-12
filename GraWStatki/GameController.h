@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <ostream>
+#include <fstream>
 
 
 #include "AI.h"
@@ -69,6 +70,36 @@ public:
 		if (players[1]) delete players[1];
 		players[1] = new AI();
 	}
+
+	void save_game()
+	{
+		std::fstream plik;
+		try {
+			plik.open("save", std::ios::out | std::ios::binary);;
+			plik.write((char*)this, sizeof(GameController));
+			//plik.write((char*)players[0], sizeof(Player));
+			plik.close();
+		}
+		catch(std::exception e)
+		{
+			std::cout << e.what();
+		}
+	}
+
+	void load_game()
+	{
+		std::fstream plik;
+		try {
+			plik.open("save", std::ios::in | std::ios::binary);;
+			plik.read((char*)this, sizeof(GameController));
+			plik.close();
+		}
+		catch (std::exception e)
+		{
+			std::cout << e.what();
+			std::system("pause");
+		}
+	}
 	
 	void start()
 	{
@@ -84,7 +115,7 @@ public:
 	{
 		std::cout << "\tGRA W STATKI" << std::endl;
 		std::cout << "1. Rozpocznij gre z losowym rozmieszczeniem statkow" << std::endl;
-		std::cout << "2. Ustaw statki" << std::endl;
+		std::cout << "2. Wczytaj gre" << std::endl;
 		std::cout << "3. Wyjscie" << std::endl;
 		std::cout << "" << std::endl;
 		std::cout << "Opcja: ";
@@ -115,7 +146,10 @@ public:
 				a->place_ship_randomly();
 			state = game_state::PLAYING;
 			break;
-		case 2: break;
+		case 2: 
+			load_game();
+			state = game_state::PLAYING;
+			break;
 		case 3: game_flag = false; break;
 		default: ;
 		}
@@ -127,6 +161,10 @@ public:
 		if (command.length() != 2) {
 			if (command == "exit") {
 				initialize();
+				state = game_state::MAIN_MENU;
+			}
+			if (command == "save") {
+				save_game();
 				state = game_state::MAIN_MENU;
 			}
 			return;

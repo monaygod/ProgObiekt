@@ -62,6 +62,14 @@ public:
 		return result;
 	}
 
+	std::string print_to_file()
+	{
+		std::string result("");
+		for (int i = 0; i < size_ * size_; i++)
+			result += tablica[i]->to_string();
+		return result;
+	}
+
 	bool place_ship(int ship_id, bool ship_direction, size_t x, size_t y)
 	{
 		
