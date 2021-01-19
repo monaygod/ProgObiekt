@@ -37,7 +37,7 @@ int main()
 	std::vector<Rekord> rekordy;
 	{
 		std::fstream plik;
-		std::string name, dna, line;
+		std::string name, dna="", line;
 		plik.open("sequences.fasta", std::ios::in);
 		std::getline(plik, line);
 		name = line;
@@ -57,6 +57,7 @@ int main()
 
 	for(auto& rekord : rekordy)
 	{
+		//rekord.walidacja();
 		rekord.kalkualtor();
 		rekord.pokaz_rezultat();
 	}

@@ -1,4 +1,5 @@
 #pragma once
+#include <iomanip>
 #include <string>
 #include <map>
 
@@ -14,6 +15,20 @@ public:
 	Rekord(std::string name, std::string value) : nazwa(name), dna(value)
 	{
 		
+	}
+
+	void walidacja()
+	{
+		int dna_len = dna.length()-1;
+		for (int i = 0; i < dna_len; i++)
+		{
+			if (znaczki.find(dna[i])==std::string::npos)
+			{
+				dna.erase(i);
+				i--;
+				dna_len--;
+			}
+		}
 	}
 
 	void kalkualtor()
@@ -39,7 +54,12 @@ public:
 		int ilosc = 0;
 		for(auto a : mapa)
 		{
-			std::cout << a.first << ":" << a.second;
+			
+			if(!check(znaczki,a.first))
+			{
+				continue;
+			}
+			std::cout << std::right << std::setw(4) << std::setfill(' ') << a.first << ":" << std::left << std::setw(7) << std::setfill(' ') << a.second;
 			if(ilosc == 4)
 			{
 				std::cout << std::endl;
@@ -48,11 +68,22 @@ public:
 			else
 			{
 				ilosc++;
-				std::cout << "    \t";
 			}
 		}
+		std::cout << std::endl;
 	}
 
+	bool check(std::string s1, std::string s2)
+	{
+		for(auto a: s2)
+		{
+			if (s1.find(a) == std::string::npos)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 
 
 	
