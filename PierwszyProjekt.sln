@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraWStatki", "GraWStatki\Gr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CovidZabawa", "CovidZabawa\CovidZabawa.vcxproj", "{C2BED9C9-6131-422E-94CB-1FD0F161BCC1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "USOS", "USOS\USOS.vcxproj", "{8EFEEBA5-082D-435E-AB17-8A373C26143B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{C2BED9C9-6131-422E-94CB-1FD0F161BCC1}.Release|x64.Build.0 = Release|x64
 		{C2BED9C9-6131-422E-94CB-1FD0F161BCC1}.Release|x86.ActiveCfg = Release|Win32
 		{C2BED9C9-6131-422E-94CB-1FD0F161BCC1}.Release|x86.Build.0 = Release|Win32
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Debug|x64.ActiveCfg = Debug|x64
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Debug|x64.Build.0 = Debug|x64
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Debug|x86.ActiveCfg = Debug|Win32
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Debug|x86.Build.0 = Debug|Win32
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Release|x64.ActiveCfg = Release|x64
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Release|x64.Build.0 = Release|x64
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Release|x86.ActiveCfg = Release|Win32
+		{8EFEEBA5-082D-435E-AB17-8A373C26143B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
