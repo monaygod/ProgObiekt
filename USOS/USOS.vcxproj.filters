@@ -13,33 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="database">
+    <Filter Include="Pliki nagłówkowe\database">
       <UniqueIdentifier>{53d3a7a4-c2d6-4d8e-bdfc-e1413daf9f0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="database\model">
+    <Filter Include="Pliki nagłówkowe\database\model">
       <UniqueIdentifier>{881ac305-13b8-4004-99c7-09607f66a488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\database">
+      <UniqueIdentifier>{4914c950-07f9-41b9-afd4-a8a21f2b5ed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\database\model">
+      <UniqueIdentifier>{2fcfbd25-8161-4b99-acaa-78b101598917}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="USOS.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Pliki źródłowe\database</Filter>
+    </ClCompile>
+    <ClCompile Include="Supervisor.cpp">
+      <Filter>Pliki źródłowe\database</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Pliki źródłowe\database\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Grades.cpp">
+      <Filter>Pliki źródłowe\database\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Lecturer.cpp">
+      <Filter>Pliki źródłowe\database\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Pliki źródłowe\database\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>Pliki źródłowe\database\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Student.h">
-      <Filter>database\model</Filter>
+      <Filter>Pliki nagłówkowe\database\model</Filter>
     </ClInclude>
     <ClInclude Include="Database.h">
-      <Filter>database\model</Filter>
+      <Filter>Pliki nagłówkowe\database\model</Filter>
     </ClInclude>
     <ClInclude Include="Lecturer.h">
-      <Filter>database\model</Filter>
+      <Filter>Pliki nagłówkowe\database\model</Filter>
     </ClInclude>
     <ClInclude Include="Subject.h">
-      <Filter>database\model</Filter>
+      <Filter>Pliki nagłówkowe\database\model</Filter>
     </ClInclude>
     <ClInclude Include="Grades.h">
-      <Filter>database\model</Filter>
+      <Filter>Pliki nagłówkowe\database\model</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Pliki nagłówkowe</Filter>
